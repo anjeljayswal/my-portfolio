@@ -42,7 +42,7 @@ export default function Home() {
 
       <Section title="Skills">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Node.js', 'GraphQL', 'Python', 'Django'].map((skill) => (
+          {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Node.js', 'Sanity', 'SQL', 'API Integration', 'PostgreSQL', 'Prisma'].map((skill) => (
             <div
               key={skill}
               className="p-4 rounded-lg bg-white dark:bg-gray-800 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
