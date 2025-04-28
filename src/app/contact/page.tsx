@@ -1,6 +1,42 @@
+'use client'
+import { Metadata } from 'next';
 import Section from '@/components/Section';
+import { useState } from 'react';
 
 export default function ContactPage() {
+
+   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Failed to send message.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong.');
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <Section title="Get In Touch">
@@ -37,7 +73,7 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Name
@@ -46,6 +82,8 @@ export default function ContactPage() {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
                 />
@@ -58,6 +96,8 @@ export default function ContactPage() {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
                 />
@@ -69,6 +109,8 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message} 
+                  onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
@@ -78,9 +120,10 @@ export default function ContactPage() {
                 type="submit"
                 className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-lg hover:from-indigo-700 hover:to-indigo-600 transition-all shadow-md hover:shadow-lg w-full"
               >
-                Send Message
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+            {success && <p className="text-green-500">Message sent successfully!</p>}
           </div>
         </div>
       </Section>
