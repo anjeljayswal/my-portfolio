@@ -11,8 +11,17 @@ const projects: Project[] = [
     demoUrl: 'https://my-portfolio-five-snowy-38.vercel.app/',
     codeUrl: '#',
   },
+  // GoalBook is a goal-tracking app designed to help users unlock their true potential. It allows users to set goals, break them into manageable steps, track progress, and stay motivated with encouragement along the way. GoalBook makes achieving personal and professional goals simple, organized, and inspiring.
   {
     id: '2',
+    title: 'GoalBook',
+    description: 'GoalBook is a goal-tracking app designed to help users unlock their true potential. It allows users to set goals, break them into manageable steps, track progress, and stay motivated with encouragement along the way.',
+    technologies: ['Next.js', 'PostgreSQL', 'Tailwind CSS', 'Prisma', 'Sanity.io', 'Api Integration'],
+    demoUrl: 'https://dev.goalbook.app/',
+    // codeUrl: '',
+  },
+  {
+    id: '3',
     title: 'Invoice Management Application',
     description: 'Full-stack invoice management app with secure authentication, invoice CRUD operations, and data visualization.',
     technologies: ['Next.js', 'PostgreSQL', 'Tailwind CSS'],
@@ -20,7 +29,7 @@ const projects: Project[] = [
     codeUrl: 'https://github.com/anjeljayswal/invoice-app',
   },
   {
-    id: '3',
+    id: '4',
     title: 'E-commerce Platform',
     description: 'Full-stack e-commerce platform with product listings, cart functionality.',
     technologies: ['React', 'JavaScript', 'CSS'],
@@ -28,7 +37,7 @@ const projects: Project[] = [
     codeUrl: 'https://github.com/anjeljayswal/EcommerceWeb',
   },
   {
-    id: '4',
+    id: '5',
     title: 'To-do Task Management App',
     description: 'A to-do task list is a simple tool that helps you organize and track tasks or activities that need to be completed.',
     technologies: ['Next.js', 'Tailwind CSS'],
@@ -36,7 +45,7 @@ const projects: Project[] = [
     codeUrl: 'https://github.com/anjeljayswal/FinaceCalculator',
   },
     {
-    id: '5',
+    id: '6',
     title: 'Resume Builder',
     description: 'A resume builder is a tool that helps users create professional resumes quickly and easily.',
     technologies: ['React', 'Tailwind CSS'],
