@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow-md border-b border-gray-100 dark:border-gray-700">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto  sm:px-40 px-4 py-4">
         <div className="flex justify-between items-center">
           <Link 
             href="/" 
@@ -39,7 +39,7 @@ const Header = () => {
             >
               Contact
             </Link>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </nav>
 
           {/* Mobile menu button */}
@@ -79,9 +79,9 @@ const Header = () => {
             >
               Contact
             </Link>
-            <div className="px-3 py-2">
+            {/* <div className="px-3 py-2">
               <ThemeToggle />
-            </div>
+            </div> */}
           </nav>
         )}
       </div>
