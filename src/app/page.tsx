@@ -4,13 +4,13 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <Section title="Welcome">
+      <Section title="Welcome" className='text-center md:text-left'>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h1 className="text-4xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
-              Hi, I'm <span className="text-emerald-500 dark:text-emerald-400">Anjali Jayswal</span>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-indigo-600 dark:text-indigo-400 text-center md:text-left">
+              Hi, I'm Anjali Jayswal
             </h1>
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200 text-center md:text-left">
               Frontend Developer
             </h2>
             <p className="text-lg mb-8 text-gray-700 dark:text-gray-300">
